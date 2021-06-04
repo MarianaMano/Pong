@@ -6,8 +6,13 @@ public class Ball : MonoBehaviour
 {
     [SerializeField]
     float velocidade = 5f;
+    
     bool bolafoilancada = false;
-    float tempo = 0f;
+    
+    float tempoDecorrido = 0f;
+
+    [SerializeField]
+    float tempoEspera = 2f;
 
 
 
@@ -29,29 +34,23 @@ public class Ball : MonoBehaviour
 
         System.Threading.Thread.Sleep(2000);
 
-        GetComponent<Rigidbody2D>().velocity = velocidade * Random.insideUnitCircle;
-          
-   
-
-       /* if (bolafoilancada == false)
-        {
-            tempo = tempo + Time.deltaTime;
-
-            if(tempo >= 2)
-            {
-                GetComponent<Rigidbody2D>().velocity = velocidade * Random.insideUnitCircle;
-                bolafoilancada = true;
-            }
-        }
-       */
-        
-
+        GetComponent<Rigidbody2D>().velocity = velocidade * Random.onUnitSphere;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-         
+        /* if (bolafoilancada == false)
+       {
+           tempoDecorrido = tempoDecorrido + Time.deltaTime; // tempoDecorrido += Time.deltaTime; //
+
+           if(tempoDecorrido >= tempoEspera)
+           {
+               GetComponent<Rigidbody2D>().velocity = velocidade * Random.onUnitSphere;
+               bolafoilancada = true;
+           }
+       }
+      */
     }
 }
